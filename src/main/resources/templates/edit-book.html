@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center">Edit Book Details</h2>
+    <form th:action="@{/books/update}" th:object="${book}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="mb-3">
+            <label class="form-label">Title:</label>
+            <input type="text" class="form-control" th:field="*{title}" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Author:</label>
+            <input type="text" class="form-control" th:field="*{author}" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Genre:</label>
+            <input type="text" class="form-control" th:field="*{genre}" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Availability Status:</label>
+            <select class="form-select" th:field="*{availabilityStatus}">
+                <option value="Available">Available</option>
+                <option value="Checked Out">Checked Out</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Book</button>
+        <a href="/books/list" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer class="text-center mt-5 py-3 bg-dark text-white">
+    <p class="mb-0">Developed by <strong>Biki Dutta</strong> 💻</p>
+</footer>
+
+</body>
+</html>
